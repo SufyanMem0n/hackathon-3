@@ -117,7 +117,7 @@ const Page = () => {
               <input type="checkbox" className="mr-2" />
               <span>I agree with our terms and conditions and privacy policy.</span>
             </label>
-             <Link href='/Admin' target='blank'>
+             <Link href='/Admin' target='_blank'>
                <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
               Rent Now
             </button>
