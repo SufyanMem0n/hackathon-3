@@ -124,7 +124,7 @@ export default function Home() {
                         <div className="bg-white p-6 rounded-lg shadow-lg">
                             <h2 className="text-lg font-bold text-gray-800">Nissan GT - R</h2>
                             <p className="text-gray-500 mt-2">
-                                Inspired by the most unforgiving proving ground, the "race track".
+                                Inspired by the most unforgiving proving ground, the race track.
                             </p>
                             <div className="mt-4 text-gray-700">
                                 <p>Capacity: 2 People</p>
