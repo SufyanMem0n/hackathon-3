@@ -12,10 +12,15 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Dashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle('dark');
+  };
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
   };
 
   // Doughnut chart data
@@ -40,7 +45,9 @@ const Dashboard = () => {
   return (
     <div className={`flex min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
       {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-gray-800 shadow-lg flex flex-col">
+      <aside
+        className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-64 bg-white dark:bg-gray-800 shadow-lg flex flex-col z-50 md:translate-x-0`}
+      >
         <h2 className="text-2xl font-bold text-center mt-6 text-blue-500 dark:text-blue-400">Dashboard</h2>
         <nav className="mt-8 space-y-4 flex-grow">
           <a href="#" className="flex items-center px-6 py-3 bg-blue-500 text-white rounded">
@@ -88,7 +95,15 @@ const Dashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 p-6 md:ml-64">
+        {/* Mobile Sidebar Toggle */}
+        <button
+          onClick={toggleSidebar}
+          className="md:hidden mb-4 p-2 bg-blue-500 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+        >
+          {isSidebarOpen ? 'Close Menu' : 'Open Menu'}
+        </button>
+
         {/* Header */}
         <div className="flex justify-between mb-6">
           <h1 className="text-2xl font-bold">Details Rental</h1>
@@ -98,9 +113,11 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Rental Details */}
           <div className="col-span-2 bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-            <img src="/Maps.png" alt="" className='w-[100%] h-[40%]'/>
-            <div className='flex py-2 my-2 gap-2'><img src="/Look.png" alt="car" />
-            <h2 className="text-xl font-bold">Nissan GT - R</h2></div>
+            <img src="/Maps.png" alt="" className="w-[100%] h-[40%]" />
+            <div className="flex py-2 my-2 gap-2">
+              <img src="/Look.png" alt="car" />
+              <h2 className="text-xl font-bold">Nissan GT - R</h2>
+            </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">Sport Car</p>
             <div className="grid grid-cols-2 gap-4">
               <div>

@@ -70,7 +70,7 @@ export default function Home() {
         <Layout>
             <div className="flex flex-wrap min-h-screen bg-gray-100">
                 {/* Sidebar */}
-                <aside className="w-[360px] md:w-1/4 bg-white p-6 shadow-lg">
+                <aside className="w-full md:w-1/4 bg-white p-6 shadow-lg">
                     <h2 className="text-xl font-bold mb-4">Filter</h2>
                     <div className="space-y-6">
                         <div>
@@ -180,4 +180,4 @@ export default function Home() {
             </div>
         </Layout>
     );
-}  
+}
