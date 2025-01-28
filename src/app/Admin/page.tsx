@@ -43,7 +43,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className={`flex min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
+    <div className={`flex flex-col md:flex-row min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
       {/* Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 w-64 bg-white dark:bg-gray-800 shadow-lg flex flex-col z-50 md:translate-x-0`}
@@ -110,12 +110,12 @@ const Dashboard = () => {
         </div>
 
         {/* Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Rental Details */}
-          <div className="col-span-2 bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-            <img src="/Maps.png" alt="" className="w-[100%] h-[40%]" />
-            <div className="flex py-2 my-2 gap-2">
-              <img src="/Look.png" alt="car" />
+          <div className="col-span-1 lg:col-span-2 bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+            <img src="/Maps.png" alt="" className="w-full h-auto" />
+            <div className="flex py-2 my-2 gap-2 items-center">
+              <img src="/Look.png" alt="car" className="h-10 w-10" />
               <h2 className="text-xl font-bold">Nissan GT - R</h2>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">Sport Car</p>
@@ -154,15 +154,15 @@ const Dashboard = () => {
             </a>
           </div>
           {transactions.map((car, index) => (
-            <div key={index} className="flex items-center justify-between border-b py-4 dark:border-gray-700">
+            <div key={index} className="flex flex-col md:flex-row items-start md:items-center justify-between border-b py-4 dark:border-gray-700">
               <div className="flex items-center">
-                <img src={car.imgSrc} alt={car.name} className="w-40 h-14 object-cover rounded-lg mr-4 " />
+                <img src={car.imgSrc} alt={car.name} className="w-32 h-20 object-cover rounded-lg mr-4" />
                 <div>
                   <h3 className="font-bold">{car.name}</h3>
                   <p className="text-gray-500 text-sm dark:text-gray-400">{car.type}</p>
                 </div>
               </div>
-              <div className="text-right">
+              <div className="text-left md:text-right mt-2 md:mt-0">
                 <p className="text-gray-500 text-sm dark:text-gray-400">{car.date}</p>
                 <p className="font-bold">{car.price}</p>
               </div>
